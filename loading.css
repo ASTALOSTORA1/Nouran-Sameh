@@ -1,0 +1,30 @@
+
+/* Remove Framer "Get template for free" badge */
+[data-framer-name="(Delete this)"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+#__framer-editorbar-container {
+  display: none !important;
+}
+#__framer-badge-container{
+  display: none !important;
+}
+
+
+/* .framer-316rlt-container {
+  display: none !important;
+  pointer-events: none;
+  opacity: 0 !important;
+} */
+
+
+.framer-Mn1a8{
+  display: none !important;
+}
+.framer-p25hjm{
+  display: none !important;
+}
