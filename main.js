@@ -49,27 +49,18 @@ let projectsData = []
 fetch('https://nouran-server.vercel.app/api/json/projects')
   .then(response => response.json())
   .then((data)=>{
-// data.forEach((e,i)=>{
-// projectsData.push(
-//   {
-//     id:e._id,
-//     imageUrl:e.imageUrl,
-//     title:e.title,
-//     description:e.description
-//   }
-// )
-// })
-
-for(i=0;i>data.length;i++){
+x = data 
+x.forEach((e,i)=>{
 projectsData.push(
   {
-    id:data[i]._id,
-    imageUrl:data[i].imageUrl,
-    title:data[i].title,
-    description:data[i].description
+    id:e._id,
+    imageUrl:e.imageUrl,
+    title:e.title,
+    description:e.description
   }
 )
-}
+})
+
   });
 
 
