@@ -15,6 +15,23 @@
   );
 
 
+// كود تحديد الصفحة الحالية من الـ URL
+const path = window.location.pathname;
+
+if (path === '/work') {
+    // اعرض محتوى صفحة الأعمال
+    document.getElementById('work-section').style.display = 'block';
+    document.getElementById('about-section').style.display = 'none';
+} else if (path === '/about-me') {
+    // اعرض محتوى صفحة عني
+    document.getElementById('work-section').style.display = 'none';
+    document.getElementById('about-section').style.display = 'block';
+} else {
+    // الصفحة الرئيسية
+    document.getElementById('work-section').style.display = 'none';
+    document.getElementById('about-section').style.display = 'none';
+}
+
 
 // // for favicon Icon
     const existing = document.querySelectorAll("link[rel*='icon']");
@@ -353,23 +370,6 @@ window.addEventListener('load', () => {
 
 
 
-
-// كود تحديد الصفحة الحالية من الـ URL
-const path = window.location.pathname;
-
-if (path === '/work') {
-    // اعرض محتوى صفحة الأعمال
-    document.getElementById('work-section').style.display = 'block';
-    document.getElementById('about-section').style.display = 'none';
-} else if (path === '/about-me') {
-    // اعرض محتوى صفحة عني
-    document.getElementById('work-section').style.display = 'none';
-    document.getElementById('about-section').style.display = 'block';
-} else {
-    // الصفحة الرئيسية
-    document.getElementById('work-section').style.display = 'none';
-    document.getElementById('about-section').style.display = 'none';
-}
 
 
 
