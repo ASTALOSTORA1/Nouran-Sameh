@@ -48,9 +48,8 @@ let x = []
 let projectsData = []
 fetch('https://nouran-server.vercel.app/api/json/projects')
   .then(response => response.json())
-  .then(async (data)=>{
-await x = data
-x.forEach((e,i)=>{
+  .then((data)=>{
+data.forEach((e,i)=>{
 projectsData.push(
   {
     id:e._id,
@@ -347,6 +346,7 @@ if (document.readyState === 'loading') {
 window.addEventListener('load', () => {
   setTimeout(init, 1000); // تأخير إضافي لضمان تحميل Framer
 });
+
 
 
 
