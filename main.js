@@ -57,8 +57,7 @@ projectsData.push(
     imageUrl:data[i].imageUrl,
     title:data[i].title,
     description:data[i].description
-  }
-)
+  })
    }
 
 
@@ -349,6 +348,7 @@ if (document.readyState === 'loading') {
 window.addEventListener('load', () => {
   setTimeout(init, 1000); // تأخير إضافي لضمان تحميل Framer
 });
+
 
 
 
