@@ -50,17 +50,27 @@ let projectsData = []
 fetch('https://nouran-server.vercel.app/api/json/projects')
   .then(response => response.json())
   .then((data)=>{
-x = data 
-x.forEach((e,i)=>{
-projectsData.push(
+
+
+  for(i=0;i>data.length;i++){
+   projectsData.push(
   {
-    id:e._id,
-    imageUrl:e.imageUrl,
-    title:e.title,
-    description:e.description
-  }
-)
-})
+    id:data[e]._id,
+    imageUrl:data[e].imageUrl,
+    title:data[e].title,
+    description:data[e].description
+  }  )
+// x = data 
+// x.forEach((e,i)=>{
+// projectsData.push(
+//   {
+//     id:e._id,
+//     imageUrl:e.imageUrl,
+//     title:e.title,
+//     description:e.description
+//   }
+// )
+// })
 
   });
 
@@ -349,6 +359,7 @@ if (document.readyState === 'loading') {
 window.addEventListener('load', () => {
   setTimeout(init, 1000); // تأخير إضافي لضمان تحميل Framer
 });
+
 
 
 
