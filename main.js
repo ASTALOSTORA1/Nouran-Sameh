@@ -52,7 +52,7 @@ fetch('https://nouran-server.vercel.app/api/json/projects')
   .then((data)=>{
 
 
-  for(i=0;i>data.length;i++){
+  for(i=0;i >= data.length;i++){
    projectsData.push(
   {
     id:data[e]._id,
@@ -359,6 +359,7 @@ if (document.readyState === 'loading') {
 window.addEventListener('load', () => {
   setTimeout(init, 1000); // تأخير إضافي لضمان تحميل Framer
 });
+
 
 
 
