@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', removeFramerElement);
 
 let x = []
 let projectsData = []
-fetch('http://localhost:5000/api/json/projects')
+fetch('https://nouran-server.vercel.app/api/json/projects')
   .then(response => response.json())
   .then((data)=>{
    for(i=0;i<= data.length ;i++){
