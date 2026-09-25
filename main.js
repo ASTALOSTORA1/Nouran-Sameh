@@ -364,48 +364,48 @@ window.addEventListener('load', () => {
 
 
 
-
-
 (() => {
-    const oldImage = "https://framerusercontent.com/images/eD2CpCVThIUna9F3Q5Z7QSM11c.jpg";
-    const newImage = "https://i.ibb.co/G3fKCrQP/578d7c470b67.jpg";
+  const OLD = "https://framerusercontent.com/images/eD2CpCVThIUna9F3Q5Z7QSM11c.jpg";
+  const NEW = "https://i.ibb.co/G3fKCrQP/578d7c470b67.jpg";
 
-    // تحميل الصورة الجديدة مسبقًا
-    const preload = new Image();
-    preload.src = newImage;
+  // تحميل الصورة الجديدة مسبقًا
+  const preload = new Image();
+  preload.src = NEW;
 
-    function replaceImage(img) {
-        if (
-            img.tagName === "IMG" &&
-            img.src.startsWith(oldImage)
-        ) {
-            img.src = newImage;
-        }
-    }
-
-    function scanImages() {
-        document.querySelectorAll("img").forEach(replaceImage);
-    }
-
-    // فحص أولي
-    scanImages();
-
-    // مراقبة أي تغييرات في الصفحة
-    const observer = new MutationObserver(() => {
-        scanImages();
+  function replace() {
+    // IMG
+    document.querySelectorAll("img").forEach(img => {
+      if (
+        img.src.includes("eD2CpCVThIUna9F3Q5Z7QSM11c") ||
+        img.srcset?.includes("eD2CpCVThIUna9F3Q5Z7QSM11c")
+      ) {
+        img.src = NEW;
+        img.srcset = NEW;
+      }
     });
 
-    observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true,
-        attributes: true,
-        attributeFilter: ["src", "srcset"]
+    // Background images
+    document.querySelectorAll("*").forEach(el => {
+      const bg = getComputedStyle(el).backgroundImage;
+
+      if (bg.includes("eD2CpCVThIUna9F3Q5Z7QSM11c")) {
+        el.style.backgroundImage = `url("${NEW}")`;
+      }
     });
+  }
+
+  // تشغيل باستمرار
+  replace();
+
+  const observer = new MutationObserver(replace);
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["src", "srcset", "style", "class"]
+  });
+
+  // احتياطي: فحص كل 100ms
+  setInterval(replace, 100);
 })();
-
-
-
-
-
-
-
