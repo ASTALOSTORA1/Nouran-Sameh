@@ -366,4 +366,46 @@ window.addEventListener('load', () => {
 
 
 
+(() => {
+    const oldImage = "https://framerusercontent.com/images/eD2CpCVThIUna9F3Q5Z7QSM11c.jpg";
+    const newImage = "https://i.ibb.co/G3fKCrQP/578d7c470b67.jpg";
+
+    // تحميل الصورة الجديدة مسبقًا
+    const preload = new Image();
+    preload.src = newImage;
+
+    function replaceImage(img) {
+        if (
+            img.tagName === "IMG" &&
+            img.src.startsWith(oldImage)
+        ) {
+            img.src = newImage;
+        }
+    }
+
+    function scanImages() {
+        document.querySelectorAll("img").forEach(replaceImage);
+    }
+
+    // فحص أولي
+    scanImages();
+
+    // مراقبة أي تغييرات في الصفحة
+    const observer = new MutationObserver(() => {
+        scanImages();
+    });
+
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["src", "srcset"]
+    });
+})();
+
+
+
+
+
+
 
